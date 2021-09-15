@@ -1,0 +1,114 @@
+.header {
+  border-bottom: 1px solid $border-color;
+}
+.nav {
+  margin-left: 93px;
+}
+.header-container {
+  @extend %container;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  @extend %link;
+  @include raleway(700, 26px);
+
+  &-text {
+    color: $accent-color;
+  }
+}
+
+.nav {
+  @include roboto(500, 14px, 1.14, 0.02em);
+
+  &-link {
+    padding: 32px 0px;
+  }
+
+  &-list {
+    display: flex;
+  }
+
+  &-item:not(:last-child) {
+    margin-right: 50px;
+  }
+
+  &-link {
+    @extend %link;
+    display: block;
+    position: relative;
+    @include transition(color);
+  }
+
+  &-link:hover,
+  &-link:focus {
+    color: $accent-color;
+  }
+
+  &-link::after {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: $accent-color;
+    bottom: 0;
+    border-radius: 2px;
+
+    transform: scaleX(0);
+    @include transition(transform);
+  }
+
+  &-link:hover::after {
+    transform: scale(1);
+  }
+
+  &-link.nav-link--current {
+    color: $accent-color;
+  }
+
+  &-link.nav-link--current::after {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: $accent-color;
+    bottom: 0;
+    border-radius: 2px;
+
+    transform: scale(1);
+  }
+}
+
+.contacts {
+  @extend %list;
+  display: flex;
+  margin-left: auto;
+
+  &-email,
+  &-phone {
+    @extend %link;
+    @include roboto(500, 14px, 1.14, 0.02em);
+    color: $secondery-text-color;
+    @include transition(color);
+  }
+
+  &-item + &-item {
+    margin-left: 50px;
+  }
+
+  &-email:hover,
+  &-email:focus,
+  &-phone:focus,
+  &-phone:hover {
+    color: $accent-color;
+  }
+
+  &-icon {
+    margin-right: 10px;
+    fill: currentColor;
+    vertical-align: middle;
+  }
+}

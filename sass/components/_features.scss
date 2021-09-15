@@ -1,0 +1,37 @@
+.features-container {
+  @extend %container;
+}
+.features {
+  padding: 94px 0;
+
+  &-list {
+    @extend %list;
+    display: flex;
+  }
+
+  &-item {
+    width: calc((100% - 90px) / 4);
+  }
+
+  &-item + &-item {
+    margin-left: 30px;
+  }
+  &-title {
+    @include roboto(700, 14px, 1.14, 0.03em);
+    text-transform: uppercase;
+  }
+  &-text {
+    margin-top: 10px;
+    width: 270px;
+    @include roboto(400, 14px, 1.71, 0.03em);
+    color: $secondery-text-color;
+  }
+  &-thumb {
+    background-color: #f5f4fa;
+    border-radius: 4px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+}
